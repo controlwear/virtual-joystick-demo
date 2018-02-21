@@ -1,5 +1,6 @@
 package io.github.controlwear.joystickdemo;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mTextViewAngleRight;
     private TextView mTextViewStrengthRight;
+    private TextView mTextViewCoordinateRight;
 
 
     @Override
@@ -36,13 +38,20 @@ public class MainActivity extends AppCompatActivity {
 
         mTextViewAngleRight = (TextView) findViewById(R.id.textView_angle_right);
         mTextViewStrengthRight = (TextView) findViewById(R.id.textView_strength_right);
+        mTextViewCoordinateRight = findViewById(R.id.textView_coordinate_right);
 
-        JoystickView joystickRight = (JoystickView) findViewById(R.id.joystickView_right);
+        final JoystickView joystickRight = (JoystickView) findViewById(R.id.joystickView_right);
         joystickRight.setOnMoveListener(new JoystickView.OnMoveListener() {
+            @SuppressLint("DefaultLocale")
             @Override
             public void onMove(int angle, int strength) {
                 mTextViewAngleRight.setText(angle + "°");
                 mTextViewStrengthRight.setText(strength + "%");
+                mTextViewCoordinateRight.setText(
+                        String.format("%03d:%03d",
+                                joystickRight.getNormalizedX(),
+                                joystickRight.getNormalizedY())
+                );
             }
         });
     }

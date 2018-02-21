@@ -51,6 +51,15 @@
         android:text="0%"/>
 
 
+    <TextView
+        android:id="@+id/textView_coordinate_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView_strength_right"
+        android:text="50:50"/>
+
+
     <io.github.controlwear.virtual.joystick.android.JoystickView
         xmlns:custom="http://schemas.android.com/apk/res-auto"
         android:id="@+id/joystickView_right"
