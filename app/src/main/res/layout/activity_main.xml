@@ -31,7 +31,7 @@
         android:layout_margin="32dp"
         android:background="@drawable/joystick_background"
         custom:JV_buttonImage="@drawable/pink_ball"
-        custom:JV_fixedCenter="true"/>
+        custom:JV_fixedCenter="false"/>
 
 
     <TextView
