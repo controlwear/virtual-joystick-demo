@@ -13,7 +13,7 @@ Add library to dependencies.
 ```
 dependencies {
     ...
-    compile 'io.github.controlwear:virtualjoystick:1.8.0'
+    compile 'io.github.controlwear:virtualjoystick:1.9.2'
 }
 ```
 
