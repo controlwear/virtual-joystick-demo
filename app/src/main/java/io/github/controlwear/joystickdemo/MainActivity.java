@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 mTextViewAngleRight.setText(angle + "°");
                 mTextViewStrengthRight.setText(strength + "%");
                 mTextViewCoordinateRight.setText(
-                        String.format("%03d:%03d",
+                        String.format("x%03d:y%03d",
                                 joystickRight.getNormalizedX(),
                                 joystickRight.getNormalizedY())
                 );

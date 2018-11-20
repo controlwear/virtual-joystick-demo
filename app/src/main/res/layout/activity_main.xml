@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/textView_strength_right"
-        android:text="50:50"/>
+        android:text="x050:x050"/>
 
 
     <io.github.controlwear.virtual.joystick.android.JoystickView

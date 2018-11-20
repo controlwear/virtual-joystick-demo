@@ -62,7 +62,7 @@ Just a couple of TextView and JoystickView to activity_main.xml
         android:layout_margin="32dp"
         android:background="@drawable/joystick_background"
         custom:JV_buttonImage="@drawable/pink_ball"
-        custom:JV_fixedCenter="true"/>
+        custom:JV_fixedCenter="false"/>
 
 
     <TextView
@@ -80,6 +80,15 @@ Just a couple of TextView and JoystickView to activity_main.xml
         android:layout_alignParentRight="true"
         android:layout_below="@+id/textView_angle_right"
         android:text="0%"/>
+
+
+    <TextView
+        android:id="@+id/textView_coordinate_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView_strength_right"
+        android:text="x050:x050"/>
 
 
     <io.github.controlwear.virtual.joystick.android.JoystickView
@@ -109,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mTextViewAngleRight;
     private TextView mTextViewStrengthRight;
+    private TextView mTextViewCoordinateRight;
 
 
     @Override
@@ -131,13 +141,20 @@ public class MainActivity extends AppCompatActivity {
 
         mTextViewAngleRight = (TextView) findViewById(R.id.textView_angle_right);
         mTextViewStrengthRight = (TextView) findViewById(R.id.textView_strength_right);
+        mTextViewCoordinateRight = findViewById(R.id.textView_coordinate_right);
 
-        JoystickView joystickRight = (JoystickView) findViewById(R.id.joystickView_right);
+        final JoystickView joystickRight = (JoystickView) findViewById(R.id.joystickView_right);
         joystickRight.setOnMoveListener(new JoystickView.OnMoveListener() {
+            @SuppressLint("DefaultLocale")
             @Override
             public void onMove(int angle, int strength) {
                 mTextViewAngleRight.setText(angle + "°");
                 mTextViewStrengthRight.setText(strength + "%");
+                mTextViewCoordinateRight.setText(
+                        String.format("x%03d:y%03d",
+                                joystickRight.getNormalizedX(),
+                                joystickRight.getNormalizedY())
+                );
             }
         });
     }
